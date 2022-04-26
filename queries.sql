@@ -1,8 +1,9 @@
-SELECT * from animals WHERE name like '%mon';
-SELECT * from animals WHERE date_of_birth BETWEEN 'Jan 1, 2016' AND 'Jan 1, 2019';
-SELECT * from animals WHERE neutered=true AND escape_attempts<3;
-SELECT date_of_birth FROM animals WHERE name='Agumon' OR name='Pikachu';
-SELECT name, escape_attempts FROM animals WHERE weight_kg > 10.5;
-SELECT * FROM animals WHERE neutered=true;
-SELECT * FROM animals WHERE name!='Gabumon';
-SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
+SELECT * from animal WHERE name LIKE '%mon';
+SELECT name FROM animal WHERE date_of_birth BETWEEN '1-1-2016' AND '1-1-2019';
+SELECT name FROM animal WHERE neutered='true' AND escape_attempts < 3;
+SELECT date_of_birth FROM animal WHERE name='Agumon' OR name='Pikachu';
+SELECT name,escape_attempts FROM animal WHERE weight_kg > '10.5kg';
+SELECT * FROM animal WHERE neutered = 'true' OR neutered='false';
+SELECT * FROM animal WHERE name!= 'Gabumon';
+SELECT * FROM animal WHERE weight_kg>= '10.4kg' AND weight_kg<= '17.3kg' OR weight_kg = '10.23kg';
