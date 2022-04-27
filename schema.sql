@@ -62,21 +62,21 @@ GO
 CREATE TABLE dbo.specializations
 (
    species_id INT,
-   vets_id INT,
+   vet_id INT,
    CONSTRAINT fk_species FOREIGN KEY(species_id) REFERENCES species(id),
-   CONSTRAINT fk_vets FOREIGN KEY(vets_id) REFERENCES vets(id)
+   CONSTRAINT fk_vets FOREIGN KEY(vet_id) REFERENCES vet(id)
 );
 GO
 
 CREATE TABLE dbo.visits
 (
    animal_id INT,
-   vets_id INT,
+   vet_id INT,
    date_of_visits DATE,
    CONSTRAINT fk_animal FOREIGN KEY(animal_id) REFERENCES animal(id),
-   CONSTRAINT fk_vets FOREIGN KEY(vets_id) REFERENCES vets(id)
+   CONSTRAINT fk_vets FOREIGN KEY(vet_id) REFERENCES vets(id)
 );
 GO
 
 CREATE INDEX animal_id_visits_index ON visits(animal_id ASC)
-CREATE INDEX vets_id_visits_index ON visits(vets_id ASC)
+CREATE INDEX vet_id_visits_index ON visits(vet_id ASC)

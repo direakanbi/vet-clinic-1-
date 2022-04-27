@@ -88,7 +88,7 @@ GO
 
 -- Insert specializations query data
 INSERT INTO specializations
- ([species_id],[vets_id])
+ ([species_id],[vvet_id])
 VALUES
  (1, 1),
  (1, 3),
@@ -98,7 +98,7 @@ GO
 
 -- animal visits
 INSERT INTO visits
- ([animal_id],[vets_id],[data_of_visit])
+ ([animal_id],[vvet_id],[data_of_visit])
 VALUES
  ((SELECT id FROM animal WHERE name = 'Agumon'), (SELECT id FROM vets WHERE name = 'William Tatcher'), '2020-5-24'),
  ((SELECT id FROM animal WHERE name = 'Agumon'), (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2020-7-22'),
@@ -123,8 +123,8 @@ VALUES
 GO
 
 INSERT INTO visits
- ([animal_id],[vets_id],[date_of_visit])
-SELECT * FROM (SELECT id FROM animal) animal_ids, (SELECT id FROM vets) vets_ids, generate_series('1980-01-01', timestamp, '2021-01-01', '4 hours') visit_timestamp;
+ ([animal_id],[vet_id],[date_of_visit])
+SELECT * FROM (SELECT id FROM animal) animal_ids, (SELECT id FROM vets) vet_ids, generate_series('1980-01-01', timestamp, '2021-01-01', '4 hours') visit_timestamp;
 INSERT INTO owners
  ([full_name],[email])
 SELECT 'Owner' , generate_series(1,2500000), 'owner_' , generate_series(1,2500000) , '@mail.com';
